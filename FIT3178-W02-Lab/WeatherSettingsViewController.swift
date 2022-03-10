@@ -19,8 +19,11 @@ class WeatherSettingsViewController: UIViewController {
     @IBAction func colourSegmentValueChanged(_ sender: Any) {
         
         var colourName = colourSegmentedControl.titleForSegment(at: colourSegmentedControl.selectedSegmentIndex) ?? ""
+        
         colourName = colourName.appending("Colour")
         colourPreviewView.backgroundColor = UIColor(named: colourName)
+    
+        
         
     }
     
@@ -44,6 +47,12 @@ class WeatherSettingsViewController: UIViewController {
                     icon = .sun
            }
             let colour = colourPreviewView.backgroundColor?.cgColor
+            
+            let weatherDetails = WeatherDetails(description: description, backgroundColour: colour, icon: icon)
+            
+            let destination = segue.destination as! WeatherSummaryViewController
+            
+            destination.weatherDetails = weatherDetails
         }
         
     }

@@ -22,24 +22,27 @@ struct WeatherDetails {
     var description: String
     var backgroundColour: CGColor?
     var icon: WeatherIcon
+    
+    
+    func iconImageName() -> String {
+        
+        switch icon {
+            case .clouds:
+                return "cloud.fill"
+            case .rain:
+                return "cloud.rain.fill"
+            case .lightning:
+                return "cloud.bolt.fill"
+            case .snow:
+                return "cloud.snow.fill"
+            default:
+                return "sun.max.fill"
+            
+            }
+
+        }
 }
 
-func iconImageName(icon:WeatherIcon) -> String {
-    
-    switch icon {
-        case .clouds:
-            return "cloud.fill"
-        case .rain:
-            return "cloud.rain.fill"
-        case .lightning:
-            return "cloud.bolt.fill"
-        case .snow:
-            return "cloud.snow.fill"
-        default:
-            return "sun.max.fill"
-        
-        }
 
-    }
 
 

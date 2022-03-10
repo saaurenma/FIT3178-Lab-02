@@ -109,7 +109,6 @@
                             <constraint firstItem="Z0v-PS-hJV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="pXT-n1-Zc3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B2j-86-MP1" secondAttribute="bottom" constant="20" id="rue-rb-2Eh"/>
                             <constraint firstItem="Sbn-y4-ezM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tye-6F-S2A"/>
-                            <constraint firstItem="B2j-86-MP1" firstAttribute="top" secondItem="Sbn-y4-ezM" secondAttribute="bottom" constant="378" id="weR-A3-fuf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weather Settings" id="5GG-Yx-TDY"/>

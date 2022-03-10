@@ -12,6 +12,8 @@ class WeatherSummaryViewController: UIViewController {
     var weatherDetails: WeatherDetails?
     
     @IBOutlet weak var summaryButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +25,14 @@ class WeatherSummaryViewController: UIViewController {
         
         summaryButton.setTitle(weatherDetails.description, for: .normal)
         
-        //let buttonImage = UIImage(systemName: weatherDetails
+        let buttonImage = UIImage(systemName: weatherDetails.iconImageName())
+        
+        summaryButton.setImage(buttonImage, for: .normal)
+        
+        
+        if let backgroundColour = weatherDetails.backgroundColour {
+            summaryButton.tintColor = UIColor(cgColor: backgroundColour)
+        }
         
     }
     
