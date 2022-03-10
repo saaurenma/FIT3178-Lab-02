@@ -23,7 +23,7 @@ class WeatherSummaryViewController: UIViewController {
         
         summaryButton.setTitle(weatherDetails.description, for: .normal)
         
-        let buttonImage = UIImage(systemName: weatherDetails.iconImageName())
+        //let buttonImage = UIImage(systemName: weatherDetails
         
     }
     
