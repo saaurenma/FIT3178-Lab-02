@@ -7,7 +7,14 @@
 
 import UIKit
 
-class WeatherSettingsViewController: UIViewController, UITextFieldDelegate {
+class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, ColourChangeDelegate {
+    
+    func changedToColour(_ colour: UIColor) {
+        
+        colourPreviewView.backgroundColor = colour
+        
+    }
+    
 
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var iconSegmentedControl: UISegmentedControl!
@@ -18,11 +25,20 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func colourSegmentValueChanged(_ sender: Any) {
         
+        
         var colourName = colourSegmentedControl.titleForSegment(at: colourSegmentedControl.selectedSegmentIndex) ?? ""
         
-        colourName = colourName.appending("Colour")
-        colourPreviewView.backgroundColor = UIColor(named: colourName)
+        if colourName != "Custom" {
+        
+            colourName = colourName.appending("Colour")
+            
+            colourPreviewView.backgroundColor = UIColor(named: colourName)
     
+        }
+        
+        else {
+            performSegue(withIdentifier: "pickColourSegue", sender: sender)
+        }
         
         
     }
@@ -53,6 +69,13 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate {
             let destination = segue.destination as! WeatherSummaryViewController
             
             destination.weatherDetails = weatherDetails
+        }
+        
+        else if segue.identifier == "pickColourSegue" {
+            
+            let destination = segue.destination as! ChooseColourViewController
+            destination.delegate = self
+            
         }
         
     
