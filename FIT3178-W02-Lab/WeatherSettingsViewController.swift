@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherSettingsViewController: UIViewController {
+class WeatherSettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var iconSegmentedControl: UISegmentedControl!
@@ -55,11 +55,19 @@ class WeatherSettingsViewController: UIViewController {
             destination.weatherDetails = weatherDetails
         }
         
+    
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        descriptionTextField.delegate = self
     }
 
 
