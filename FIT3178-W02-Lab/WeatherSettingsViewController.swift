@@ -23,6 +23,18 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
     @IBOutlet weak var colourPreviewView: UIView!
         
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showSummarySegue" && descriptionTextField.text == "" {
+            
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    
+    
     @IBAction func colourSegmentValueChanged(_ sender: Any) {
         
         
@@ -42,6 +54,7 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
         
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
         if segue.identifier == "showSummarySegue" {
@@ -91,6 +104,7 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         descriptionTextField.delegate = self
+        
     }
 
 
