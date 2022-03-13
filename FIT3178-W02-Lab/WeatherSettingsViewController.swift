@@ -101,15 +101,23 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
     }
     
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         descriptionTextField.delegate = self
+        
+        var colourName = colourSegmentedControl.titleForSegment(at: colourSegmentedControl.selectedSegmentIndex) ?? ""
+        colourName = colourName.appending("Colour")
+        colourPreviewView.backgroundColor = UIColor(named: colourName)
+    
+        
         
     }
 
