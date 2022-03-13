@@ -24,9 +24,8 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
         
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "showSummarySegue" && descriptionTextField.text == "" {
-            
-            
+        if identifier == "showSummarySegue" && descriptionTextField.text?.isEmpty == true {
+            displayMessage(title: "Error", message: "A description must be provided")
             return false
         }
         
@@ -92,6 +91,13 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
         }
         
     
+    }
+    
+    func displayMessage(title: String, message: String){
+        // displays a message to the user
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil ))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
