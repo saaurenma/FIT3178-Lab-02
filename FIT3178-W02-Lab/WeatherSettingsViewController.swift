@@ -86,6 +86,7 @@ class WeatherSettingsViewController: UIViewController, UITextFieldDelegate, Colo
         else if segue.identifier == "pickColourSegue" {
             
             let destination = segue.destination as! ChooseColourViewController
+            destination.initialColour = colourPreviewView.backgroundColor?.cgColor
             destination.delegate = self
             
         }
